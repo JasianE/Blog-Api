@@ -15,6 +15,7 @@ var app = express();
 
 mongoose.connect(process.env.DBHOST, {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection
+const port = process.env.PORT || 3000
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
 const corsOptions = {
@@ -51,5 +52,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(port, () => {
+  console.log('Port')
+})
 
 module.exports = app;
