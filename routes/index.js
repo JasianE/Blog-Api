@@ -5,7 +5,7 @@ const postController = require('../controllers/postController')
 
 /* GET home page. */
 router.get('/', function(res,req,next){
-    res.send('Started!')
+    console.log('started')
 })
 router.get('/:Post/comments', commentController.find)
 
