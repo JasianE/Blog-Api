@@ -13,7 +13,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-mongoose.connect(process.env.DBHOST, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(/*process.env.DBHOST*/'mongodb+srv://Esam:greendayrocks56@cluster0.4dghv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection
 const port = process.env.PORT || 3000
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
