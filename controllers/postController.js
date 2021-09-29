@@ -16,7 +16,7 @@ exports.add = function(req,res,next){
 exports.display = function(req,res,next){
     Post.find().exec(function(err, list){
         if(err) return next(err)
-        console.log(list)
+        console.log('helloooo')
         res.json(list)
     })
 }
