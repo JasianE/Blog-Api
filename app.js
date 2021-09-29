@@ -5,29 +5,23 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
-const session = require('express-session')
-const passport = require('passport')
+const cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-mongoose.connect(process.env.DBHOST, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(/*process.env.DBHOST*/ 'mongodb+srv://Esam:greendayrocks56@cluster0.4dghv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection
 const port = process.env.PORT || 3000
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
-
-const corsOptions = {
-  origin: '',
-  credentials: true,
-  optionSuccessStatus: 200
-}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
