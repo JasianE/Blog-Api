@@ -1,6 +1,7 @@
 const Comment = require('../models/comment')
 
 exports.find = function(req,res,next){
+    console.log('post:', req.params.post)
     Comment.find().exec((err, comments) => {
         console.log(comments)
     })
