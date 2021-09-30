@@ -15,5 +15,11 @@ exports.add = function(req,res,next){
         message: req.body.message,
         date: new Date(),
         post: req.body.post
+    }).save(err => {
+        if(err){
+            console.log(err)
+            return next(err)
+        }
+        res.json('Done!')
     })
 }
