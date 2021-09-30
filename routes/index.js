@@ -8,6 +8,7 @@ router.get('/', function(res,req,next){
     console.log('started')
 })
 router.get('/:Post/comments', commentController.find)
+router.post('/comments', commentController.add)
 
 router.get('/posts', postController.display)
 router.get('/:Post/posts', postController.find)
