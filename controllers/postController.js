@@ -4,6 +4,7 @@ exports.add = function(req,res,next){
     const post = new Post({
         title: req.body.title,
         date: new Date(),
+        text: req.body.text,
         public: req.body.public
     }).save(err => {
         if(err){
